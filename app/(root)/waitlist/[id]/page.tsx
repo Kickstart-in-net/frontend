@@ -1,5 +1,5 @@
 "use client";
-import { addUsersToDB, cn, unsanitizeEmail } from "@/lib/utils";
+import { cn, unsanitizeEmail } from "@/lib/utils";
 import React, { useState } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -105,28 +105,6 @@ const Waitlist = ({ params }: PageProps) => {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
 
-    addUsersToDB(values)
-      .then(() => {
-        console.log("User added to DB");
-        // sendEmail(values);
-        router.push("/");
-        toast('Thanks for joining Kickstart! You are now on our waitlist! Stay tuned for updates and get ready for something great.',
-          {
-            position: "top-center",
-            icon: '🎉',
-            style: {
-              borderRadius: '10px',
-              background: '#333',
-              color: '#fff',
-            },
-            duration: 8000,
-          }
-        );
-
-      })
-      .catch((error) => {
-        console.error("Error adding user to DB: ", error);
-      });
   }
 
   return (
