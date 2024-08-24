@@ -49,7 +49,7 @@ export default function WordRotate({
           className={cn(className, "")}
         >
           <h1
-            className=""
+            className="py-4"
             style={{
               backgroundClip: "text",
               WebkitBackgroundClip: "text",
