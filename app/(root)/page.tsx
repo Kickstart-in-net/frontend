@@ -76,7 +76,7 @@ export default function Home() {
           onClick={handleJoinWaitlist}
           className="md:py-1 py-2 px-6 text-white cursor-pointer rounded-full bg-gradient-to-r to-[#A100FF] from-[#3E4DD2]
            md:text-[20px] text-[15px] focus:border-transparent focus:ring-0 focus:outline-none font-normal overflow-hidden
-              ">
+            hover:to-[#3E4DD2] hover:from-[#3E4DD2] transition-all duration-500 ease-in ">
           sign up for kickstart
           
         </button>
