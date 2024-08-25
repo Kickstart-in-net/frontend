@@ -61,5 +61,11 @@
 .sky{
   background:url("/03-Sky 2.jpg") ;
 }
+.expanded .child-div {
+  @apply h-36; /* Expanded height */
+}
 
+.expanded .child-description {
+  @apply translate-y-0 opacity-100; /* Description revealed */
+}
 
