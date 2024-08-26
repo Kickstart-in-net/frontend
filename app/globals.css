@@ -80,26 +80,23 @@
 }
 
 
+/* World-map hover effect */
 .textWithBlurredBg {
   width: 100%;
   display: inline-block;
   position: relative;
   transition: all 0.2s ease-in; /* Transition-in duration */
 }
-
 .textWithBlurredBg img {
   width: 100%;
   height: 100%;
   transition: all 0.9s ease-out; /* Longer transition-out duration */
   border-radius: 4px;
-  
 }
-
 .textWithBlurredBg:hover img {
   filter: blur(10px) brightness(60%);
 
 }
-
 .textWithBlurredBg :not(img) {
   font-size: 2vw;
   position: absolute;
@@ -114,7 +111,6 @@
   /* transition: 0.5s; */
   transition: opacity 0.9s ease-out; /* Longer transition-out duration */
 }
-
 .textWithBlurredBg:hover :not(img) {
   opacity: 1;
 }
