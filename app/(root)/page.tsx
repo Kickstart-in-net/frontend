@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { sanitizeEmail } from "@/lib/utils";
 import toast from "react-hot-toast";
 import { Contact } from "lucide-react";
+import About from "@/components/shared/About";
 export default function Home() {
   const router = useRouter();
   const [email, setEmail] = useState("");
@@ -93,6 +94,8 @@ export default function Home() {
       <WhatHowWhom />
 
       <Features />
+
+      <About/>
 
     </main>
   );

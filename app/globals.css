@@ -58,24 +58,63 @@
     --chart-5: 340 75% 55%;
   }
 }
-.sky{
-  background:url("/03-Sky 2.jpg") ;
+.sky {
+  background: url("/03-Sky 2.jpg");
 }
 .expanded .child-div {
   @apply h-36; /* Expanded height */
-  
 }
 
 .expanded .child-description {
   @apply translate-y-0 opacity-100; /* Description revealed */
 }
 .bg-clip-text-image {
-  background-image: url('/backg.jpg');
-  
-  background-size:cover;
-  
-  background-position:center;
- -webkit-background-clip: text;
+  background-image: url("/backg.jpg");
+
+  background-size: cover;
+
+  background-position: center;
+  -webkit-background-clip: text;
 
   color: transparent;
+}
+
+
+.textWithBlurredBg {
+  width: 100%;
+  display: inline-block;
+  position: relative;
+  transition: all 0.2s ease-in; /* Transition-in duration */
+}
+
+.textWithBlurredBg img {
+  width: 100%;
+  height: 100%;
+  transition: all 0.9s ease-out; /* Longer transition-out duration */
+  border-radius: 4px;
+  
+}
+
+.textWithBlurredBg:hover img {
+  filter: blur(10px) brightness(60%);
+
+}
+
+.textWithBlurredBg :not(img) {
+  font-size: 2vw;
+  position: absolute;
+  z-index: 1;
+  top: 20%;
+  width: 100%;
+  text-align: left;
+  padding-left: 5%;
+  padding-right: 10%;
+  color: #fff;
+  opacity: 0;
+  /* transition: 0.5s; */
+  transition: opacity 0.9s ease-out; /* Longer transition-out duration */
+}
+
+.textWithBlurredBg:hover :not(img) {
+  opacity: 1;
 }
