@@ -63,9 +63,19 @@
 }
 .expanded .child-div {
   @apply h-36; /* Expanded height */
+  
 }
 
 .expanded .child-description {
   @apply translate-y-0 opacity-100; /* Description revealed */
 }
+.bg-clip-text-image {
+  background-image: url('/backg.jpg');
+  
+  background-size:cover;
+  
+  background-position:center;
+ -webkit-background-clip: text;
 
+  color: transparent;
+}

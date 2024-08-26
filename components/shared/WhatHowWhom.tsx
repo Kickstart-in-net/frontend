@@ -13,8 +13,8 @@ const WhatHowWhom = () => {
 
   return (
     <div 
-      className={`w-full flex flex-col justify-center items-center md:items-start  mt-60 md:mt-24 md:p-8 md:ps-16 gap-5 hover:bg-black/50 rounded-3xl transition-all ease-in-out duration-300 ${isExpanded ? 'expanded' : ''}`} 
-      onMouseEnter={handleHover}
+      className={`w-full flex flex-col justify-center items-center md:items-start  mt-60 md:mt-24 md:p-8 md:ps-16 gap-5 hover:bg-black/50 rounded-3xl transition-all ease-in-out duration-300 ${isExpanded ? 'expanded' : 'flex flex-col justify-center items-center md:items-start  '} `} 
+      onMouseOver={handleHover}
     >
       
       {what_how_who.map((item, index) => {
@@ -32,7 +32,7 @@ const WhatHowWhom = () => {
                 className="rounded-[48px] "
               />
                
-              <div className={` ${isExpanded ? 'flex flex-col gap-5' : 'hidden'} `}>
+              <div className={` ${isExpanded ? 'flex flex-col gap-5' : 'hidden'}`}>
                 <h1 className="font-bold text-center md:text-start text-[16px] md:text-[24px]">{item.heading}</h1>
                 <p className="text-[12px] text-center md:text-start px-6 md:px-0 pb-10 md:text-[16px] ">{item.description}</p>
               </div>
@@ -40,10 +40,9 @@ const WhatHowWhom = () => {
           );
         } else if (index === 1) {
           return (
-              <div key={index} className="w-full flex flex-col md:flex-row justify-center items-center md:justify-end">
+              <div key={index} className={` flex flex-col mx-96 md:flex-row justify-center items-center md:justify-end ${isExpanded ? 'w-[70%]  ' : 'w-[30%]  '}`}>
                 <div
-                  className={`flex flex-col md:flex-row items-center justify-end bg-gradient-to-r from-[#101D4A] to-[#2645B0] gap-5 rounded-[48px] text-white transition-all duration-300 ${isExpanded ? 'w-[70%]  ' : 'w-[30%] mx-96 '}`}
-                >
+                  className={`flex flex-col md:flex-row items-center justify-end bg-gradient-to-r from-[#101D4A] to-[#2645B0] gap-5 rounded-[48px] text-white transition-all duration-300 `}>
                    <Image
                     src={item.image}
                     alt={item.heading}
@@ -70,7 +69,7 @@ const WhatHowWhom = () => {
           return (
             <div
               key={index}
-              className={`flex flex-col md:flex-row items-center justify-start bg-gradient-to-r from-[#872C2C] to-[#390C0C] gap-5 rounded-[48px] text-white transition-all duration-300 ${isExpanded ? 'w-[70%]' : 'mx-96 w-[30%]'}`}
+              className={`flex flex-col md:flex-row items-center justify-start bg-gradient-to-r from-[#872C2C] to-[#390C0C] gap-5 rounded-[48px] text-white transition-all duration-300 ${isExpanded ? 'transition-all w-[70%]' : 'mx-96 w-[30%]'}`}
             >
               <Image
                 src={item.image}
