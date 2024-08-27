@@ -125,3 +125,23 @@
   opacity: 1;
 }
 
+/* Footer height */
+.divHeightIncrese{
+  height: 70vh;
+}
+
+/* Arrow rotation in landing page */
+.linkedin .arrow1 {
+  transition: transform 0.5s ease; /* Apply the transition to both hover and non-hover states */
+}
+.linkedin:hover .arrow1 {
+  transform: rotate(45deg);
+  transition: transform 0.3s ease; /* You can also set a custom timing here */
+}
+.insta .arrow2 {
+  transition: transform 0.5s ease; /* Apply the transition to both hover and non-hover states */
+}
+.insta:hover .arrow2 {
+  transform: rotate(45deg);
+  transition: transform 0.5s ease; /* You can also set a custom timing here */
+}

@@ -11,6 +11,7 @@ import { sanitizeEmail } from "@/lib/utils";
 import toast from "react-hot-toast";
 import { Contact } from "lucide-react";
 import About from "@/components/shared/About";
+import Footer from "@/components/shared/Footer";
 export default function Home() {
   const router = useRouter();
   const [email, setEmail] = useState("");
