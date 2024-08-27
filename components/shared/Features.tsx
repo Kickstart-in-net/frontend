@@ -40,31 +40,37 @@ const services = [
 
 const WhatWeServe = () => {
   return (
-    <div>
+    <div className='w-[97%]'>
       <span className="text-4xl  mt-10 font-bold text-transparent bg-clip-text-image mb-4">
         What we Serve
       </span>
       <p className=" text-xl">Dive in, level up your skills, and get paid—super easy!</p>
-    <div className="w-full flex flex-col justify-center items-center md:items-start  mt-60 md:mt-10 md:p-8 md:ps-16 gap-5 hover:bg-black/50 rounded-3xl transition-all ease-in-out duration-300">
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-screen-xl px-4">
-        {services.map((service, index) => (
-          <div
-            key={index}
-            className={`${service.bgColor} ${
-              service.borderColor ? `border ${service.borderColor}` : ''
-            } p-6 rounded-3xl flex flex-col items-center justify-center text-center shadow-lg`}
-          >
-            <div className="flex items-center justify-center h-24 w-24 mb-4">
-              <Image src={service.icon} alt={service.title} width={96} height={96} />
-            </div>
-            <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
-            <p className="text-base">{service.description}</p>
-          </div>
-        ))}
+    <div className="w-full grid grid-cols-5 grid-rows-2 gap-4   flex-col justify-center items-center md:items-start  mt-60 md:mt-10 md:pt-20 md:pb-20  md:pl-[150px] md:pr-[150px]  md:ps-16  hover:bg-black/50 rounded-3xl transition-all ease-in-out duration-300 min-h-screen">
+      {/* Upper Row */}
+      <div className="col-span-2  h-[250px] w-[350px] bg-[#2486BE] rounded-3xl p-4 text-white flex items-center justify-center">
+        Secured Freelancing
+      </div>
+      <div className="col-span-3 w-[630px] h-[260px] ml-[30px] bg-[#39BCA2] rounded-3xl p-4 text-white flex items-center justify-center">
+        2-Step Escrow Based Payment System
+      </div>
+
+      {/* Lower Row */}
+      <div className="col-span-2 -mt-[20px] h-[290px] bg-[#A4CB4A] rounded-3xl p-4 text-black flex items-center justify-center">
+        Insurance Policy on Scams
+      </div>
+     <div  className=' -mt-[15px] mr-[40px] flex pl-9 col-span-3  w-[700px] '>
+     <div className="col-span-1 h-40 w-40 z-20 bg-black rounded-3xl p-4 text-white flex items-center justify-center">
+        Ai Assistant
+      </div>
+      <div className="col-span-2 custom-shape -mx-[120px] w-[560px] h-[290px] bg-[#EA764F] rounded-badge p-4 text-black flex items-center justify-center">
+       
+        Advanced Project Roadmaps
+      </div>
       </div>
     </div>
+     
     </div>
+   
   );
 };
 
