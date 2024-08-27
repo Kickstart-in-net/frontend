@@ -145,3 +145,24 @@
   transform: rotate(45deg);
   transition: transform 0.5s ease; /* You can also set a custom timing here */
 }
+
+/* Glow effect in smart contract */
+.image-container {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px; /* Optional, for rounded corners */
+  box-shadow: 0 0 20px rgba(255, 252, 255, 0.8); /* Initial glow */
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% {
+      box-shadow: 0 0 20px rgba(255, 252, 255, 0.8);
+  }
+  50% {
+      box-shadow: 0 0 40px rgba(255, 252, 255, 0.8);
+  }
+  100% {
+      box-shadow: 0 0 20px rgba(255, 252, 255, 0.8);
+  }
+}

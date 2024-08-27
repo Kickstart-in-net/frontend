@@ -35,7 +35,7 @@ const About = () => {
         {/* Image Section */}
         <div className="w-1/3 ">
           <Image
-            className="object-cover rounded-lg glow"
+            className="object-cover image-container"
             alt="hero"
             src="/smart_contract_img.svg"
             width={545}
