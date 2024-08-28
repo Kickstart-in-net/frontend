@@ -10,6 +10,8 @@ import { useRouter } from "next/navigation";
 import { sanitizeEmail } from "@/lib/utils";
 import toast from "react-hot-toast";
 import { Contact } from "lucide-react";
+import About from "@/components/shared/About";
+import Footer from "@/components/shared/Footer";
 export default function Home() {
   const router = useRouter();
   const [email, setEmail] = useState("");
@@ -76,7 +78,7 @@ export default function Home() {
           onClick={handleJoinWaitlist}
           className="md:py-1 py-2 px-6 text-white cursor-pointer rounded-full bg-gradient-to-r to-[#A100FF] from-[#3E4DD2]
            md:text-[20px] text-[15px] focus:border-transparent focus:ring-0 focus:outline-none font-normal overflow-hidden
-            hover:to-[#3E4DD2] hover:from-[#3E4DD2] transition-all duration-500 ease-in ">
+            hover:to-[#3E4DD2] hover:from-[#3E4DD2] transition-transform-opacity duration-700 ease-in-out ">
           sign up for kickstart
           
         </button>
@@ -93,6 +95,8 @@ export default function Home() {
       <WhatHowWhom />
 
       <Features />
+
+      <About/>
 
     </main>
   );
