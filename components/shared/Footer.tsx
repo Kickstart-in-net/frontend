@@ -68,7 +68,7 @@ function Footer() {
       </div>
 
       {/* Copyright info */}
-      <div className="flex items-center text-lg mt-8 text-white pb-2">
+      <div className="flex items-center text-xl mt-8 text-white">
         <h1 className="font-bold pl-7">&copy; Copyright 2024 Kickstart Inc.</h1>
         <p className="ml-4">All rights reserved.</p>
         <ul className="pl-7 list-disc flex space-x-7 cursor-pointer underline underline-offset-4">
