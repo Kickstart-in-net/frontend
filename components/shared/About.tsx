@@ -20,7 +20,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className="flex flex-row justify-between items-center bg-zinc-950 rounded-3xl ml-4 mr-4 my-4">
+      <div className="flex flex-row h-[500px] justify-between items-center bg-zinc-950 rounded-3xl ml-4 mr-4 my-4">
         {/* Text Section */}
         <div className="lg:text-3xl sm:text-sm  text-white w-2/3 mb-8 mx-8 px-6">
           At Kickstart, we ensure that every project is backed by a smart
@@ -34,12 +34,11 @@ const About = () => {
         </div>
         {/* Image Section */}
         <div className="w-1/3 ">
-          <Image
+          <img
             className="object-cover image-container"
             alt="hero"
             src="/smart_contract_img.svg"
-            width={545}
-            height={545}
+           
           />
         </div>
       </div>
