@@ -108,7 +108,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## 💬 Contact
 
-For any questions or suggestions, feel free to reach out to us at [support@kickstart.com](mailto:support@kickstart.com) or open an issue in this repository.
+For any questions or suggestions, feel free to reach out to us at [contact@kickstart.in.net](mailto:contact@kickstart.in.net) or open an issue in this repository.
 
 ---
 
