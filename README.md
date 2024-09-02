@@ -93,14 +93,7 @@ kickstart-frontend/
 ## 🤝 Contributing
 
 We welcome contributions to Kickstart! To contribute:
-
-1. Fork the repository.
-2. Create a new branch for your feature or bugfix: `git checkout -b my-feature-branch`
-3. Commit your changes: `git commit -m 'Add some feature'`
-4. Push to the branch: `git push origin my-feature-branch`
-5. Open a pull request.
-
-Please make sure to follow the coding style of the project and include tests if applicable.
+Please refer to [CONTRIBUTING](CONTRIBUTING.md) for further information on the matter.
 
 ## 📜 License
 
