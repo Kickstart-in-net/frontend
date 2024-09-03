@@ -1,10 +1,4 @@
 import React from "react";
-//Previously imported modules are commented
-// import { FaLinkedin } from "react-icons/fa";
-// import { FaInstagramSquare } from "react-icons/fa";
-// import { BsTwitterX } from "react-icons/bs";
-// import Link from 'next/link';
-import Image from "next/image";
 
 function Footer() {
   return (

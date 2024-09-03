@@ -1,9 +1,7 @@
 import React from "react";
-import Image from "next/image";
 
 const About = () => {
   return (
-
     <section className="text-gray-600 body-font">
       <div className="container mx-auto flex px-5 py-2 md:flex-row items-center">
         {/* Text Content */}
@@ -38,7 +36,6 @@ const About = () => {
             className="object-cover image-container"
             alt="hero"
             src="/smart_contract_img.svg"
-           
           />
         </div>
       </div>
