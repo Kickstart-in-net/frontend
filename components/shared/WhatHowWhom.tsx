@@ -38,10 +38,10 @@ const WhatHowWhom = () => {
           return (
             <div
               key={index}
-              // className={`flex  items-center bg-gradient-to-r from-[#662C92] to-[#280734] gap-5 rounded-[48px] text-white transition-all duration-1000 ${
-              //   isExpanded ? `w-[70%] ${bounceClass}` : "mx-96 w-[30%] "
-              // }`}
-              className=""
+              className={cn(
+                "flex  items-center bg-gradient-to-r from-[#662C92] to-[#280734] gap-5 rounded-[48px] text-white transition-all duration-1000",
+                isExpanded ? `w-[70%] ${bounceClass}` : "mx-96 w-[30%]"
+              )}
             >
               <Image
                 src={item.image}
@@ -52,18 +52,15 @@ const WhatHowWhom = () => {
               />
 
               <div
-                className={`transition-all duration-900 flex flex-col gap-5 ${
+                className={cn(
+                  "transition-all duration-900 flex flex-col gap-5",
                   isExpanded ? "" : " hidden opcity-0"
-                }`}
+                )}
               >
-                <h1
-                  className={`font-bold text-center md:text-start text-[16px] md:text-[24px] `}
-                >
+                <h1 className="font-bold text-center md:text-start text-[16px] md:text-[24px]">
                   {item.heading}
                 </h1>
-                <p
-                  className={`text-[12px] text-center md:text-start px-6 md:px-0 pb-10 md:text-[16px]`}
-                >
+                <p className="text-[12px] text-center md:text-start px-6 md:px-0 pb-10 md:text-[16px]">
                   {item.description}
                 </p>
               </div>
@@ -73,13 +70,12 @@ const WhatHowWhom = () => {
           return (
             <div
               key={index}
-              className={` flex flex-col mx-96 md:flex-row justify-center items-center md:justify-end transition-all duration-1000 ${
-                isExpanded ? "w-[70%]  " : "w-[30%]  "
-              }`}
+              className={cn(
+                "flex flex-col mx-96 md:flex-row justify-center items-center md:justify-end transition-all duration-1000",
+                isExpanded ? "w-[70%]" : "w-[30%]"
+              )}
             >
-              <div
-                className={`flex flex-col md:flex-row items-center justify-end bg-gradient-to-r from-[#101D4A] to-[#2645B0] gap-5 rounded-[48px] text-white transition-all duration-300 `}
-              >
+              <div className="flex flex-col md:flex-row items-center justify-end bg-gradient-to-r from-[#101D4A] to-[#2645B0] gap-5 rounded-[48px] text-white transition-all duration-300">
                 <Image
                   src={item.image}
                   alt={item.heading}
@@ -88,11 +84,12 @@ const WhatHowWhom = () => {
                   className="rounded-[48px] md:hidden block"
                 />
                 <div
-                  className={` transition-all duration-700 ${
+                  className={cn(
+                    "transition-all duration-700",
                     isExpanded
                       ? "flex flex-col gap-5 ps-6 md:w-[42%]"
                       : "hidden"
-                  } `}
+                  )}
                 >
                   <h1 className="font-bold text-center md:text-end text-[16px] md:text-[24px]">
                     {item.heading}
@@ -115,9 +112,10 @@ const WhatHowWhom = () => {
           return (
             <div
               key={index}
-              className={`flex flex-col md:flex-row items-center justify-start bg-gradient-to-r from-[#872C2C] to-[#390C0C] gap-5 rounded-[48px] text-white transition-all duration-1000 ${
+              className={cn(
+                "flex flex-col md:flex-row items-center justify-start bg-gradient-to-r from-[#872C2C] to-[#390C0C] gap-5 rounded-[48px] text-white transition-all duration-1000",
                 isExpanded ? "w-[70%]" : "mx-96 w-[30%]"
-              }`}
+              )}
             >
               <Image
                 src={item.image}
@@ -127,9 +125,10 @@ const WhatHowWhom = () => {
                 className="rounded-[48px]"
               />
               <div
-                className={`transition-all duration-700 ${
+                className={cn(
+                  "transition-all duration-700",
                   isExpanded ? "flex flex-col gap-5 " : "hidden"
-                } `}
+                )}
               >
                 <h1 className="font-bold text-center md:text-start text-[16px] md:text-[24px]">
                   {item.heading}
