@@ -1,7 +1,3 @@
-Here's the updated README with the folder structure you provided:
-
----
-
 # Kickstart Frontend
 
 Welcome to the frontend repository of **Kickstart**, the ultimate online freelancing platform designed to connect software freelancers with short-term and project-based job opportunities. This repo contains the code for the frontend interface, built with modern web technologies to deliver a sleek, responsive, and dynamic user experience.
