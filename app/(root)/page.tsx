@@ -60,7 +60,7 @@ export default function Home() {
                 type="email"
                 placeholder="Email address"
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-[50%] justify-start text-black border-transparent focus:border-transparent focus:ring-0 focus:outline-none md:text-[20px] bg-white placeholder-[#7F7F7F] font-medium"
+                className="w-[100%] justify-start text-black border-transparent focus:border-transparent focus:ring-0 focus:outline-none md:text-[20px] bg-white placeholder-[#7F7F7F] font-medium"
               />
               <button
                 onClick={handleJoinWaitlist}

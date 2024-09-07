@@ -70,7 +70,8 @@ const config = {
           pulse: "4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
           slideInLeft: 'slideInLeft 0.6s ease-out forwards',
           slideInRight: 'slideInRight 0.6s ease-out forwards',
-          'bounce-x': 'bounce-x 0.2s ease-out 1',
+          horizontalBounce: 'horizontalBounce 0.5s ease-in-out 1',
+          
         },
         keyframes: {
           slideInLeft: {
@@ -114,10 +115,10 @@ const config = {
               transform: "translateY(-50%)",
             },
           },
-          'bounce-x': {
-          '0%, 100%': { transform: 'translateX(0)' },
-          '50%': { transform: 'translateX(-100%)' }, // adjust the percentage to bounce on the x-axis
-        },
+          horizontalBounce: {
+            '0%, 100%': { transform: 'translateX(0)' },
+            '50%': { transform: 'translateX(20px)' },
+          },
         },
       },
     }

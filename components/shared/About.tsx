@@ -6,9 +6,9 @@ const About = () => {
     <section className="text-gray-600 body-font">
       <div className="flex py-2 md:flex-row items-center">
         {/* Text Content */}
-        <div className="pl-5 w-full flex flex-col">
+        <div className="pl-5 ml-10 my-7 w-full flex flex-col">
           <div className="#">
-            <span className="font-roboto text-5xl  mt-10 font-bold text-transparent bg-clip-text-image mb-4">
+            <span className="font-roboto  text-5xl  font-bold text-transparent bg-clip-text-image mb-4">
               Smart Contracts
             </span>
           </div>
@@ -19,7 +19,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className="flex flex-row h-[500px] justify-between items-center bg-zinc-950 rounded-3xl ml-4 mr-4 my-4">
+      <div className="flex flex-row h-[500px] w-[97%] justify-between items-center bg-zinc-950 rounded-3xl ml-4 mr-4 my-4">
         {/* Text Section */}
         <div className="lg:text-3xl sm:text-sm  text-white w-2/3 mb-8 mx-8 px-6">
           At Kickstart, we ensure that every project is backed by a smart
@@ -45,7 +45,7 @@ const About = () => {
 
       <div className="mx-auto flex px-5 py-2 md:flex-row items-center">
         {/* Text Content */}
-        <div className="w-full flex flex-col">
+        <div className="w-full ml-10 my-7 flex flex-col">
           <div className="#">
             <span className="font-roboto text-5xl  mt-10 font-bold text-transparent bg-clip-text-image mb-4">
               Join the Future of Freelancing
