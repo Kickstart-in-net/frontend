@@ -19,7 +19,7 @@ const WhatWeServe = () => {
 
   return (
     <div className='w-[97%]'>
-      <span className="text-4xl  mt-10 font-bold text-transparent bg-clip-text-image mb-4">
+      <span className="text-5xl mt-10 font-bold text-transparent bg-clip-text-image mb-4">
         What we Serve
       </span>
       <p className=" text-xl">Dive in, level up your skills, and get paid—super easy!</p>
