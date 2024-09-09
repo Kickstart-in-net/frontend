@@ -18,16 +18,18 @@ const WhatWeServe = () => {
   
 
   return (
-    <div className='w-[97%]'>
-      <span className="text-5xl mt-10 font-bold text-transparent bg-clip-text-image mb-4">
+    <div className='mt-7 w-[220vh]'>
+      <span className="text-5xl ml-10  font-bold text-transparent bg-clip-text-image mb-4">
         What we Serve
       </span>
-      <p className=" text-xl">Dive in, level up your skills, and get paid—super easy!</p>
+      <p className="ml-10 text-xl">Dive in, level up your skills, and get paid—super easy!</p>
       {/* feature div starts here*/ }
-    <div className={`w-full grid grid-cols-5 grid-rows-2 gap-4   flex-col justify-center items-center md:items-start  mt-60 md:mt-10 md:pt-20 md:pb-20  md:pl-[100px] md:pr-[100px]  md:ps-16  hover:bg-black/50 rounded-3xl transition-all ease-in-out duration-300 min-h-screen ${isHovered ? 'hover-effect' : ''}`}onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <div className='flex justify-center items-center flex-wrap md:h-[800px] overflow-hidden '>
+    <div className={`w-full  md:grid md:grid-cols-5 md:grid-rows-3 gap-2  flex-col justify-center items-center md:items-start  mt-60 md:mt-10 md:pt-20 md:pb-20 
+      md:pl-[150px]  md:ps-16  hover:bg-black/50 rounded-3xl transition-all ease-in-out duration-300 min-h-screen ${isHovered ? 'hover-effect' : ''}`}onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       {/* Upper Row */}
       {/*secured freelancing*/}
-      <div className={`col-span-2  h-[250px] w-[350px]  rounded-3xl relative  overflow-hidden container ${isHovered ? 'transition-transform translate-x-6 duration-300' : 'transition-transform -translate-x-6 duration-300'}`}>
+      <div className={`col-span-2  md:h-[250px] md:w-[350px]  rounded-3xl relative  overflow-hidden container ${isHovered ? 'transition-transform translate-x-14 duration-300' : 'transition-transform translate-x-8 duration-300'}`}>
       <div className="top-image absolute inset-0 transition-transform duration-700 ease-in-out">
     <img src="/Property 1=Default.png" alt="Top Image" className="w-full h-full object-cover" />
   </div>
@@ -45,7 +47,7 @@ const WhatWeServe = () => {
   `}</style>
       </div>
       {/*escrow based payment*/}
-      <div className={`col-span-3 w-[680px] ml-[15px] rounded-3xl relative h-[250px] overflow-hidden container ${isHovered ? 'transition-transform -translate-x-6 duration-300' : 'transition-transform translate-x-6 duration-300'}`}>
+      <div className={`col-span-3 w-[680px] ml-[15px] rounded-3xl relative h-[250px] overflow-hidden container ${isHovered ? 'transition-transform -translate-x-14 duration-300' : 'transition-transform -translate-x-8 duration-300'}`}>
       <div className="top-image absolute inset-0 transition-transform duration-700  ease-in-out">
     <img src="/Property 1=Default.svg" alt="Top Image" className="w-full h-full object-cover" />
   </div>
@@ -64,7 +66,7 @@ const WhatWeServe = () => {
       </div>
 
       {/* Lower Row */}
-      <div className={`col-span-2 -mt-[20px] h-[300px] w-[460px] rounded-3xl relative  overflow-hidden container ${isHovered ? 'transition-transform translate-x-8 duration-300' : 'transition-transform -translate-x-3 duration-300'}`}>
+      <div className={`col-span-2 xl:-mt-[10px]  h-[300px] w-[460px] rounded-3xl relative  overflow-hidden container ${isHovered ? 'transition-transform translate-x-20 duration-300' : 'transition-transform translate-x-12 duration-300'}`}>
       <div className="top-image absolute inset-0 transition-transform duration-700 ease-in-out">
     <img src="/insurance_top.svg" alt="Top Image" className="w-full h-full object-cover" />
   </div>
@@ -83,7 +85,7 @@ const WhatWeServe = () => {
   `}</style>
       </div>
       {/*ai assistance + roadmap */}
-     <div  className=' -mt-[15px] mr-[30px] flex pl-9 col-span-3  w-[700px] '>
+     <div  className=' -mt-[10px] mr-[30px]  flex pl-2 col-span-3  w-[700px] '>
       {/*ai assistance */}
      <div className="col-span-1 h-40 w-40 z-20 rounded-3xl relative  overflow-hidden container">
      <div className="top-image absolute inset-0 transition-transform-opacity duration-700 ease-in-out">
@@ -105,7 +107,7 @@ const WhatWeServe = () => {
   `}</style>
       </div>
       {/*roadmap */}
-      <div className={`col-span-2 -ml-[120px] w-[560px] h-[290px] rounded-3xl relative  overflow-hidden container ${isHovered ? 'transition-transform -translate-x-6 duration-300' : 'transition-transform translate-x-6 duration-300'}`}>
+      <div className={`col-span-2 -ml-[120px] w-[560px] h-[290px] rounded-3xl relative  overflow-hidden container ${isHovered ? 'transition-transform -translate-x-14 duration-300' : 'transition-transform -translate-x-6 duration-300'}`}>
        
       <div className="top-image absolute inset-0 transition-transform duration-700  ease-in-out ">
     <img src="/roadmap_top.svg" alt="Top Image" className="w-full h-full object-cover opacity-100 ease-in-out transition-all" />
@@ -127,7 +129,7 @@ const WhatWeServe = () => {
       </div>
       </div>
     </div>
-     
+    </div>
     </div>
    
   );

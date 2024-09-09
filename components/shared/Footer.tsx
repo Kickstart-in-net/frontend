@@ -12,15 +12,15 @@ function Footer() {
       <div className="flex items-center p-8">
         {/* Left Section */}
         <div className="flex flex-col w-1/2">
-          <div className="pl-8 w-2/3 px-15 leading-snug text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">
+          <div className="pl-8 w-2/3 px-15 leading-snug text-7xl font-bold text-transparent bg-clip-text-image">
             Interested in Our Vision?
           </div>
         </div>
 
         {/* Right Section */}
-        <div className="justify-between pl-20 w-1/2 text-white flex flex-row ">
-          <div className="w-1/3">
-            <p className="mb-4 text-xl">
+        <div className="justify-between pl-[18%] w-1/2  text-white flex flex-row ">
+            <div className="w-[40%]">
+            <p className="mb-4  text-[20px] text-wrap font-semibold">
               If you'd like to invest with us, or have a great investment
               proposition to discuss, please shoot us a note.
             </p>
