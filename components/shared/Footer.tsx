@@ -8,7 +8,7 @@ import Image from "next/image";
 
 function Footer() {
   return (
-    <div className="bg-[#111315] h-[70vh] flex flex-col justify-between pt-10">
+    <div className="bg-[#111315] flex flex-col justify-between pt-10">
       <div className="flex items-center p-8">
         {/* Left Section */}
         <div className="flex flex-col w-1/2">
