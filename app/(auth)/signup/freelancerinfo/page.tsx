@@ -109,18 +109,18 @@ const FreelancerForm = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 w-11/12 ">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 w-10/12 ">
         {/* Phone number input with country selector */}
         <div className="flex flex-col items-start mt-10 space-y-4 ">
-          <label htmlFor="phone" className="text-2xl text-white">
+          <label htmlFor="phone" className="text-lg text-white">
             Enter your Phone Number:
           </label>
           <PhoneInput
             country="in" // Default country
             value={getValues("phoneNumber")}
             onChange={(phone) => setValue("phoneNumber", phone)}
-            inputClass="w-full border-white bg-white text-black text-4xl px-4 py-2 rounded-md "
-            containerClass="border rounded-md bg-white w-full"
+            inputClass="w-full border-white bg-white text-black text-4xl px-4 py-2 "
+            containerClass="border h-12 rounded-2xl bg-white w-full "
             buttonClass="bg-white "
             dropdownClass="bg-white text-black"
             enableSearch={true} // To enable search in the country dropdown
@@ -138,15 +138,15 @@ const FreelancerForm = () => {
           name="dob"
           render={({ field }) => (
             <FormItem className="flex flex-col">
-              <FormLabel className="text-white text-2xl">
+              <FormLabel className="text-white text-lg">
                 Date of Birth:
               </FormLabel>
               <Popover>
                 <PopoverTrigger asChild>
-                  <FormControl className="bg-white">
+                  <FormControl className="bg-white h-12 rounded-2xl">
                     <Button
                       variant={"outline"}
-                      className="w-full pl-3 text-left font-normal"
+                      className="w-full pl-3 text-left font-normal text-lg"
                     >
                       {field.value ? (
                         format(field.value, "PPP")
@@ -179,15 +179,15 @@ const FreelancerForm = () => {
           control={control}
           name="pan"
           render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-white text-2xl">PAN Number</FormLabel>
+            <FormItem className="text-white">
+              <FormLabel className="text-lg">PAN Number</FormLabel>
               <FormControl>
                 <input
                   id="pan"
                   type="text"
                   {...field}
                   placeholder="Enter PAN number"
-                  className="p-2 border rounded w-full"
+                  className="text-black p-2 border h-12 rounded-2xl w-full"
                 />
               </FormControl>
               <FormMessage />
@@ -197,21 +197,21 @@ const FreelancerForm = () => {
 
         {/* Field of Interests dropdown */}
         <div>
-          <label htmlFor="interests" className="text-white text-2xl">
+          <label htmlFor="interests" className="text-white text-lg">
             Field of Interests
           </label>
           <div className="relative">
             <button
               type="button"
               onClick={() => setDropdownOpen(!dropdownOpen)}
-              className="w-full p-2 border rounded bg-gray-200 text-left"
+              className="w-full p-2 border h-12 rounded-2xl bg-gray-200 text-left"
             >
               {getValues("interests").length > 0
                 ? `${getValues("interests").length} selected`
                 : "Select interests"}
             </button>
             {dropdownOpen && (
-              <div className="absolute top-full left-0 mt-2 w-full border rounded bg-white shadow-lg z-10">
+              <div className=" absolute top-full left-0 mt-1 w-full border border-slate-500 rounded-2xl bg-white shadow-lg z-10 h-52 overflow-y-scroll">
                 {availableInterests.map((interest) => (
                   <button
                     key={interest}
@@ -246,15 +246,15 @@ const FreelancerForm = () => {
           control={control}
           name="experience"
           render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-white text-2xl">
+            <FormItem className="text-white">
+              <FormLabel className="text-lg">
                 Work Experience
               </FormLabel>
               <FormControl>
                 <select
                   id="experience"
                   {...field}
-                  className="p-2 border rounded w-full"
+                  className="p-2 border h-12 rounded-2xl w-full text-black"
                 >
                   <option value="">Select experience</option>
                   <option value="Fresher">No experience (Fresher)</option>
@@ -278,14 +278,14 @@ const FreelancerForm = () => {
           control={control}
           name="bio"
           render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-white text-2xl">Bio</FormLabel>
+            <FormItem className="text-white">
+              <FormLabel className="text-lg">Bio</FormLabel>
               <FormControl>
                 <textarea
                   id="bio"
                   {...field}
                   placeholder="Tell us about yourself"
-                  className="p-2 border rounded w-full h-32"
+                  className="text-black p-2 border rounded-2xl w-full h-32 text-lg"
                 />
               </FormControl>
               <FormMessage />
@@ -293,12 +293,14 @@ const FreelancerForm = () => {
           )}
         />
 
-        <Button
-          type="submit"
-          className='className="w-56 px-4 py-2 font-semibold rounded-full text-white text-2xl bg-blue-600 hover:bg-blue-700"'
-        >
-          Create Account
-        </Button>
+        <div className="flex justify-center">
+          <Button
+            type="submit"
+            className="w-64 px-4 py-2 rounded-full text-white text-2xl bg-blue-600 hover:bg-blue-700"
+          >
+            Create Account
+          </Button>
+        </div>
       </form>
     </Form>
   );
