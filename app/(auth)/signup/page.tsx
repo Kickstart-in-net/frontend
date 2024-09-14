@@ -39,7 +39,7 @@ export default function SignupPage() {
       // Set authToken to local storage
       if (authToken) {
         localStorage.setItem("authToken", authToken);
-        router.push("/user"); // Redirect to the user page
+        router.push("/signup/selectprofile"); // Redirect to the user page
       } else {
         console.error("No authToken received.");
       }
@@ -62,43 +62,60 @@ export default function SignupPage() {
       return;
     }
 
-    // Make API call to backend
     try {
-      const response = await fetch(
+      // API call to store user data
+      const createUserResponse = await fetch(
         "https://mock.apidog.com/m1/649773-0-default/users",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             FullName: formData.name,
-            Bio:"",
+            Bio: "",
             Email: formData.email,
             Password: formData.password,
-            ProfileUrl:"null",
-            PhoneNumber:0,
-            
+            ProfileUrl: "null",
+            PhoneNumber: 0,
           }),
         }
       );
 
-      if (response.ok) {
-        // Parse the response JSON
-        const data = await response.json();
+      // If the user is successfully created
+      if (createUserResponse.status === 201) {
+        console.log("User successfully created");
 
-        // Extract message and authToken from the response data
-        const { message, authToken } = data;
+        // Now call the login API to authenticate the user
+        const loginResponse = await fetch(
+          "https://mock.apidog.com/m1/649773-0-default/auth/login/",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              Email: formData.email,
+              Password: formData.password,
+            }),
+          }
+        );
 
-        // Print the message and authToken to the console
-        // console.log("Message:", message);
-        // console.log("Auth Token:", authToken);
+        // If login is successful
+        if (loginResponse.status === 200) {
+          const loginData = await loginResponse.json();
+          const { message, authToken } = loginData;
 
-        // Save the auth token to local storage
-        localStorage.setItem("authToken", authToken);
+          // Print the message and authToken to the console
+          console.log("Message:", message);
+          console.log("Auth Token:", authToken);
 
-        // Navigate to another page after successful signup
-        router.push("/signup/selectprofile"); // Replace with your desired route
+          // Save the auth token to local storage
+          localStorage.setItem("authToken", authToken);
+
+          // Navigate to another page after successful login
+          router.push("/signup/selectprofile"); // Replace with your desired route
+        } else {
+          console.error("Failed to login");
+        }
       } else {
-        console.error("Failed to sign up");
+        console.error("Failed to create user");
       }
     } catch (error) {
       console.error("An error occurred:", error);
@@ -174,7 +191,10 @@ export default function SignupPage() {
 
         {/* Confirm Password Input */}
         <div>
-          <label htmlFor="confirmPassword" className="block mb-1 text-slate-200">
+          <label
+            htmlFor="confirmPassword"
+            className="block mb-1 text-slate-200"
+          >
             Confirm Password:
           </label>
           <input

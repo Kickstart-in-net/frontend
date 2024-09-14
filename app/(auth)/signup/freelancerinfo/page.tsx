@@ -97,7 +97,7 @@ const FreelancerForm = () => {
       if (response.ok) {
         const status = response.status;
         if (status === 201) {
-          router.push("/otp-verification");
+          router.push("/signup/verifyotp");
         }
       } else {
         console.error("Submission failed with status:", response.status);
