@@ -76,6 +76,21 @@ const ClientInfo = () => {
           Enter your Phone Number:
         </label>
         <PhoneInput
+          inputStyle={{
+            fontSize: "1.125rem",
+            border: "none",
+            borderRadius: "50%",
+            height: "100%",
+            width: "100%",
+          }}
+          containerStyle={{}}
+          buttonStyle={{
+            border: "none",
+            borderRadius: "50%",
+            backgroundColor: "white",
+            height: "100%",
+          }}
+          dropdownStyle={{ borderRadius: "10px" }}
           country="in" // Default country
           value={getValues("phoneNumber")}
           onChange={(phone) => setValue("phoneNumber", phone)}

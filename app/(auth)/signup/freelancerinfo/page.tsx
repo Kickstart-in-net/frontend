@@ -117,6 +117,17 @@ const FreelancerForm = () => {
           </label>
           <PhoneInput
             country="in" // Default country
+            inputStyle={{
+              fontSize: "1.125rem",
+              border: "none",
+              borderRadius:'50%',
+              height:'100%',
+              width:'100%'
+            }}
+            containerStyle={{}}
+            buttonStyle={{border:'none',borderRadius:'50%', backgroundColor:'white', height:'100%'}}
+            dropdownStyle={{borderRadius:'10px' }}
+
             value={getValues("phoneNumber")}
             onChange={(phone) => setValue("phoneNumber", phone)}
             inputClass="w-full border-white bg-white text-black text-4xl px-4 py-2 "
@@ -247,9 +258,7 @@ const FreelancerForm = () => {
           name="experience"
           render={({ field }) => (
             <FormItem className="text-white">
-              <FormLabel className="text-lg">
-                Work Experience:
-              </FormLabel>
+              <FormLabel className="text-lg">Work Experience:</FormLabel>
               <FormControl>
                 <select
                   id="experience"
