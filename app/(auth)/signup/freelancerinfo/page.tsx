@@ -97,7 +97,7 @@ const FreelancerForm = () => {
       if (response.ok) {
         const status = response.status;
         if (status === 201) {
-          router.push("/signup/verifyotp");
+          router.push("/verifyotp");
         }
       } else {
         console.error("Submission failed with status:", response.status);
@@ -180,13 +180,13 @@ const FreelancerForm = () => {
           name="pan"
           render={({ field }) => (
             <FormItem className="text-white">
-              <FormLabel className="text-lg">PAN Number</FormLabel>
+              <FormLabel className="text-lg">Enter your PAN Number:</FormLabel>
               <FormControl>
                 <input
                   id="pan"
                   type="text"
                   {...field}
-                  placeholder="Enter PAN number"
+                  placeholder="Eg: 1234 1234 1234"
                   className="text-black p-2 border h-12 rounded-2xl w-full"
                 />
               </FormControl>
@@ -198,7 +198,7 @@ const FreelancerForm = () => {
         {/* Field of Interests dropdown */}
         <div>
           <label htmlFor="interests" className="text-white text-lg">
-            Field of Interests
+            Field of Interests:
           </label>
           <div className="relative">
             <button
@@ -232,7 +232,7 @@ const FreelancerForm = () => {
               {getValues("interests").map((interest) => (
                 <span
                   key={interest}
-                  className="inline-block bg-blue-100 text-blue-600 px-2 py-1 rounded"
+                  className="inline-block bg-transparent text-lg font-medium text-white border-2 rounded-3xl px-2 py-1 "
                 >
                   {interest}
                 </span>
@@ -248,13 +248,13 @@ const FreelancerForm = () => {
           render={({ field }) => (
             <FormItem className="text-white">
               <FormLabel className="text-lg">
-                Work Experience
+                Work Experience:
               </FormLabel>
               <FormControl>
                 <select
                   id="experience"
                   {...field}
-                  className="p-2 border h-12 rounded-2xl w-full text-black"
+                  className="cursor-pointer p-2 border h-12 rounded-2xl w-full text-black"
                 >
                   <option value="">Select experience</option>
                   <option value="Fresher">No experience (Fresher)</option>
@@ -279,12 +279,12 @@ const FreelancerForm = () => {
           name="bio"
           render={({ field }) => (
             <FormItem className="text-white">
-              <FormLabel className="text-lg">Bio</FormLabel>
+              <FormLabel className="text-lg">Bio:</FormLabel>
               <FormControl>
                 <textarea
                   id="bio"
                   {...field}
-                  placeholder="Tell us about yourself"
+                  placeholder="A brief self introduction"
                   className="text-black p-2 border rounded-2xl w-full h-32 text-lg"
                 />
               </FormControl>
@@ -296,7 +296,7 @@ const FreelancerForm = () => {
         <div className="flex justify-center">
           <Button
             type="submit"
-            className="w-64 px-4 py-2 rounded-full text-white text-2xl bg-blue-600 hover:bg-blue-700"
+            className="w-64 px-4 py-6 mb-4 rounded-full text-white text-2xl bg-blue-600 hover:bg-blue-700"
           >
             Create Account
           </Button>

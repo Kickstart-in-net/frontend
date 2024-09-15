@@ -80,7 +80,7 @@ const OtpVerification = () => {
     <div className="flex flex-col items-center justify-center min-h-screen">
       <div className="text-center text-gray-400 mb-11">
         <h1 className="text-4xl font-bold">Continue to KickStart</h1>
-        <p className="text-sm mt-2"> {name ? <span>Welcome, {name}!</span> : <span>Loading...</span>} Please verify OTP to continue</p>
+        <p className="text-sm mt-2"> {name ? <span>Welcome, {name}!</span> : <span>Welcome!</span>} Please verify OTP to continue</p>
       </div>
 
       {/* OTP Input Fields */}
