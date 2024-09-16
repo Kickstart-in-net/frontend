@@ -22,7 +22,7 @@ export default function Home() {
 
     if (email !== "" && emailRegex.test(email)) {
       console.log(sanitizeEmail(email));
-      router.push(`/waitlist/${sanitizeEmail(email)}`);
+      router.push('/signup');
     } else {
       toast.error("Enter a valid email", {
         icon: "❌",

@@ -1,4 +1,3 @@
-// app/(auth)/signup/page.tsx
 "use client";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -13,11 +12,47 @@ export default function SignupPage() {
     confirmPassword: "",
   });
 
+  // Handle input change for form fields
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  // Function to handle OAuth requests
+  const handleOAuthRequest = async (provider: string): Promise<void> => {
+    try {
+      const response = await fetch(
+        `https://mock.apidog.com/m1/649773-0-default/auth/oauth/${provider}`,
+        {
+          method: "POST", // Adjust to "POST" if required by the API
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`Failed to authenticate with ${provider}`);
+      }
+
+      const data = await response.json();
+      const authToken = data.authToken; // Adjust based on actual response format
+
+      // Set authToken to local storage
+      if (authToken) {
+        localStorage.setItem("authToken", authToken);
+        router.push("/signup/selectprofile"); // Redirect to the user page
+      } else {
+        console.error("No authToken received.");
+      }
+    } catch (error) {
+      console.error("An error occurred during OAuth:", error);
+      alert(`An error occurred: ${(error as Error).message}`); // Type casting error to Error
+    }
+  };
+
+  // Function to handle click event for each button
+  const handleClick = (provider: string) => () => handleOAuthRequest(provider);
+
+  // Handle form submission for signup
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -27,39 +62,60 @@ export default function SignupPage() {
       return;
     }
 
-    // Make API call to backend
     try {
-      const response = await fetch(
-        "https://mock.apidog.com/m1/649773-0-default/auth/login/",
+      // API call to store user data
+      const createUserResponse = await fetch(
+        "https://mock.apidog.com/m1/649773-0-default/users",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            name: formData.name,
-            email: formData.email,
-            password: formData.password,
+            FullName: formData.name,
+            Bio: "",
+            Email: formData.email,
+            Password: formData.password,
+            ProfileUrl: "null",
+            PhoneNumber: 0,
           }),
         }
       );
 
-      if (response.ok) {
-        // Parse the response JSON
-        const data = await response.json();
+      // If the user is successfully created
+      if (createUserResponse.status === 201) {
+        console.log("User successfully created");
 
-        // Extract message and authToken from the response data
-        const { message, authToken } = data;
+        // Now call the login API to authenticate the user
+        const loginResponse = await fetch(
+          "https://mock.apidog.com/m1/649773-0-default/auth/login/",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              Email: formData.email,
+              Password: formData.password,
+            }),
+          }
+        );
 
-        // Print the message and authToken to the console
-        console.log("Message:", message);
-        console.log("Auth Token:", authToken);
+        // If login is successful
+        if (loginResponse.status === 200) {
+          const loginData = await loginResponse.json();
+          const { message, authToken } = loginData;
 
-        // Save the auth token to local storage
-        localStorage.setItem("authToken", authToken);
+          // Print the message and authToken to the console
+          console.log("Message:", message);
+          console.log("Auth Token:", authToken);
 
-        // Navigate to another page after successful signup
-        router.push("/user"); // Replace with your desired route
+          // Save the auth token to local storage
+          localStorage.setItem("authToken", authToken);
+
+          // Navigate to another page after successful login
+          router.push("/signup/selectprofile"); // Replace with your desired route
+        } else {
+          console.error("Failed to login");
+        }
       } else {
-        console.error("Failed to sign up");
+        console.error("Failed to create user");
       }
     } catch (error) {
       console.error("An error occurred:", error);
@@ -68,7 +124,7 @@ export default function SignupPage() {
 
   return (
     <div className="w-full flex flex-col items-center justify-center">
-      {/* Your signup form or content goes here */}
+      {/* Signup Form Header */}
       <div className="py-6">
         <h2 className="text-4xl py-2 font-bold text-center text-slate-200">
           Create Your Account
@@ -77,10 +133,13 @@ export default function SignupPage() {
           Welcome! Please fill in the details to get started.
         </p>
       </div>
+
+      {/* Signup Form */}
       <form
         onSubmit={handleSubmit}
         className="w-[60%] rounded-lg text-sm [&>*]:py-3"
       >
+        {/* Name Input */}
         <div>
           <label htmlFor="name" className="block mb-1 text-slate-200">
             Enter your Name:
@@ -96,6 +155,8 @@ export default function SignupPage() {
             required
           />
         </div>
+
+        {/* Email Input */}
         <div>
           <label htmlFor="email" className="block mb-1 text-slate-200">
             Enter your Email:
@@ -111,6 +172,8 @@ export default function SignupPage() {
             required
           />
         </div>
+
+        {/* Password Input */}
         <div>
           <label htmlFor="password" className="block mb-1 text-slate-200">
             Password:
@@ -125,6 +188,8 @@ export default function SignupPage() {
             required
           />
         </div>
+
+        {/* Confirm Password Input */}
         <div>
           <label
             htmlFor="confirmPassword"
@@ -142,23 +207,50 @@ export default function SignupPage() {
             required
           />
         </div>
+
+        {/* Divider */}
         <div className="relative flex py-5 items-center">
           <div className="flex-grow border-t-2 border-gray-50"></div>
-          <span className="flex-shrink mx-4 text-gray-500">or</span>
+          <span className="flex-shrink mx-4 text-gray-300">or</span>
           <div className="flex-grow border-t-2 border-gray-50"></div>
         </div>
-        
+
+        {/* Social Authentication Buttons */}
         <div className="flex justify-between space-x-4">
-          <button className="flex items-center justify-center w-full p-2 bg-white border rounded-md hover:bg-gray-100 shadow-md">
-            <FaGoogle className="text-red-500" />
+          {/* Google OAuth button */}
+          <button
+            onClick={handleClick("google")}
+            type="button"
+            className="flex items-center justify-center w-full p-2 bg-white border rounded-md hover:bg-gray-100 shadow-md"
+          >
+            <img
+              width="20"
+              height="20"
+              src="https://img.icons8.com/color/48/google-logo.png"
+              alt="google-logo"
+            />
           </button>
-          <button className="flex items-center justify-center w-full p-2 bg-white border rounded-md hover:bg-gray-100 shadow-md">
-            <FaGithub className="text-black" />
+
+          {/* GitHub OAuth button */}
+          <button
+            onClick={handleClick("github")}
+            type="button"
+            className="flex items-center justify-center w-full p-2 bg-white border rounded-md hover:bg-gray-100 shadow-md"
+          >
+            <FaGithub className="text-black text-xl" />
           </button>
-          <button className="flex items-center justify-center w-full p-2 bg-white border rounded-md hover:bg-gray-100 shadow-md">
-            <FaLinkedin className="text-blue-600" />
+
+          {/* LinkedIn OAuth button */}
+          <button
+            onClick={handleClick("linkedin")}
+            type="button"
+            className="flex items-center justify-center w-full p-2 bg-white border rounded-md hover:bg-gray-100 shadow-md"
+          >
+            <FaLinkedin className="text-blue-600 text-xl" />
           </button>
         </div>
+
+        {/* Submit Button */}
         <div className="w-full flex items-center justify-center">
           <button
             type="submit"
