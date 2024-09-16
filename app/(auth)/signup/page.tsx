@@ -147,7 +147,7 @@ export default function SignupPage() {
           <span className="flex-shrink mx-4 text-gray-500">or</span>
           <div className="flex-grow border-t-2 border-gray-50"></div>
         </div>
-
+        
         <div className="flex justify-between space-x-4">
           <button className="flex items-center justify-center w-full p-2 bg-white border rounded-md hover:bg-gray-100 shadow-md">
             <FaGoogle className="text-red-500" />
