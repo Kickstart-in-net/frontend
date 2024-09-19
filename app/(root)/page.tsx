@@ -22,7 +22,7 @@ export default function Home() {
 
     if (email !== "" && emailRegex.test(email)) {
       console.log(sanitizeEmail(email));
-      router.push(`/waitlist/${sanitizeEmail(email)}`);
+      router.push('/signup');
     } else {
       toast.error("Enter a valid email", {
         icon: "❌",
@@ -64,7 +64,7 @@ export default function Home() {
               />
               <button
                 onClick={handleJoinWaitlist}
-                className="md:py-1 py-2 px-6 text-white cursor-pointer rounded-full bg-gradient-to-r to-[#A100FF] from-[#3E4DD2]
+                className="w-full md:py-1 py-2 px-6 text-white cursor-pointer rounded-full bg-gradient-to-r to-[#A100FF] from-[#3E4DD2]
            md:text-[20px] text-[15px] focus:border-transparent focus:ring-0 focus:outline-none font-normal overflow-hidden
             hover:to-[#3E4DD2] hover:from-[#3E4DD2] transition-transform-opacity duration-700 ease-in-out "
               >
