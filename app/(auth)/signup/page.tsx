@@ -202,12 +202,12 @@ export default function SignupPage() {
           <button
             type="button"
             onClick={togglePasswordVisibility}
-            className="absolute right-3 top-1/2 transform -translate-y-1/2"
+            className="absolute -translate-x-9 pt-1"
           >
             {showPassword ? (
-              <AiOutlineEye className="text-gray-500" />
+              <AiOutlineEye className="text-black text-3xl" />
             ) : (
-              <AiOutlineEyeInvisible className="text-gray-500" />
+              <AiOutlineEyeInvisible className="text-black text-3xl" />
             )}
           </button>
         </div>
@@ -232,12 +232,12 @@ export default function SignupPage() {
           <button
             type="button"
             onClick={toggleConfirmPasswordVisibility}
-            className="absolute right-3 top-1/2 transform -translate-y-1/2"
+            className="absolute -translate-x-9 pt-1"
           >
             {showConfirmPassword ? (
-              <AiOutlineEye className="text-gray-500" />
+              <AiOutlineEye className="text-black text-3xl" />
             ) : (
-              <AiOutlineEyeInvisible className="text-gray-500" />
+              <AiOutlineEyeInvisible className="text-black text-3xl" />
             )}
           </button>
         </div>
