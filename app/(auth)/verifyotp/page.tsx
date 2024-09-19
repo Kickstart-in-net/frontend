@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
+
 import jwt from 'jsonwebtoken' // Import the jsonwebtoken library
 
 // Function to decode the JWT and get the payload
@@ -65,7 +66,7 @@ const OtpVerification = () => {
       // Handle response based on status
       if (response.status === 200) {
         // Redirect to another page after successful verification
-        router.push("/dashboard"); // Replace '/dashboard' with your actual redirection page
+        router.push("/studentlogin"); // Replace '/dashboard' with your actual redirection page
       } else {
         setErrorMessage("Invalid OTP. Please try again.");
       }
@@ -75,7 +76,7 @@ const OtpVerification = () => {
       setIsLoading(false);
     }
   };
-
+  
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       <div className="text-center text-gray-400 mb-11">
