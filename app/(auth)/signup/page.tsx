@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { FaGoogle, FaGithub, FaLinkedin } from "react-icons/fa";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 export default function SignupPage() {
   const router = useRouter();
@@ -11,6 +12,20 @@ export default function SignupPage() {
     password: "",
     confirmPassword: "",
   });
+
+  // States to handle the visibility of password fields
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  // Function to toggle password visibility
+  const togglePasswordVisibility = () => {
+    setShowPassword((prev) => !prev);
+  };
+
+  // Function to toggle confirm password visibility
+  const toggleConfirmPasswordVisibility = () => {
+    setShowConfirmPassword((prev) => !prev);
+  };
 
   // Handle input change for form fields
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -71,11 +86,8 @@ export default function SignupPage() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             FullName: formData.name,
-            Bio: "",
             Email: formData.email,
             Password: formData.password,
-            ProfileUrl: "null",
-            PhoneNumber: 0,
           }),
         }
       );
@@ -103,8 +115,8 @@ export default function SignupPage() {
           const { message, authToken } = loginData;
 
           // Print the message and authToken to the console
-          console.log("Message:", message);
-          console.log("Auth Token:", authToken);
+          // console.log("Message:", message);
+          // console.log("Auth Token:", authToken);
 
           // Save the auth token to local storage
           localStorage.setItem("authToken", authToken);
@@ -174,12 +186,12 @@ export default function SignupPage() {
         </div>
 
         {/* Password Input */}
-        <div>
+        <div className="relative">
           <label htmlFor="password" className="block mb-1 text-slate-200">
             Password:
           </label>
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             id="password"
             name="password"
             value={formData.password}
@@ -187,10 +199,21 @@ export default function SignupPage() {
             className="text-black w-full px-4 py-2 border rounded-md bg-slate-50"
             required
           />
+          <button
+            type="button"
+            onClick={togglePasswordVisibility}
+            className="absolute right-3 top-1/2 transform -translate-y-1/2"
+          >
+            {showPassword ? (
+              <AiOutlineEye className="text-gray-500" />
+            ) : (
+              <AiOutlineEyeInvisible className="text-gray-500" />
+            )}
+          </button>
         </div>
 
         {/* Confirm Password Input */}
-        <div>
+        <div className="relative">
           <label
             htmlFor="confirmPassword"
             className="block mb-1 text-slate-200"
@@ -198,7 +221,7 @@ export default function SignupPage() {
             Confirm Password:
           </label>
           <input
-            type="password"
+            type={showConfirmPassword ? "text" : "password"}
             id="confirmPassword"
             name="confirmPassword"
             value={formData.confirmPassword}
@@ -206,6 +229,17 @@ export default function SignupPage() {
             className="text-black w-full px-4 py-2 border rounded-md bg-slate-50"
             required
           />
+          <button
+            type="button"
+            onClick={toggleConfirmPasswordVisibility}
+            className="absolute right-3 top-1/2 transform -translate-y-1/2"
+          >
+            {showConfirmPassword ? (
+              <AiOutlineEye className="text-gray-500" />
+            ) : (
+              <AiOutlineEyeInvisible className="text-gray-500" />
+            )}
+          </button>
         </div>
 
         {/* Divider */}
