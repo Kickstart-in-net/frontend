@@ -6,7 +6,7 @@ import Image from "next/image";
 import { FaBars, FaUser, FaSignOutAlt, FaGithub,FaBell, FaEnvelope, FaPlus, FaBriefcase, FaUserCircle } from "react-icons/fa";
 import Footer from "@/components/shared/Footer";
 
-export default function HomeLayout({ children }: { children: React.ReactNode }) {
+ function HomeLayout({ children }: { children: React.ReactNode }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
@@ -68,7 +68,7 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
 
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <div className="h-full text-white bg-[#111315]">
       <header className="p-4 bg-gradient-to-tr from-[#191616] to-[#2F2F2F]">
         <nav className="flex h-8 items-center justify-between">
           {/* Dropdown Menu */}
@@ -107,7 +107,7 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
           </div>
 
           {/* Logo */}
-          <Image src="/logo.svg" width={150} height={200} alt="Kickstart logo" />
+          <Image src="/logo.svg" width={150} height={350} alt="Kickstart logo" />
           </div>
           <div className="flex mr-4">
           {/* Notifications Dropdown */}
@@ -119,7 +119,7 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
               <FaBell />
             </button>
             {notificationsOpen && (
-              <div className="absolute mt-7 -ml-[22rem] bg-gradient-to-tr from-[#191616] to-[#2F2F2F] rounded-2xl shadow-lg py-2 w-96 z-50">
+              <div className=" fixed mt-7 -ml-[22rem] bg-gradient-to-tr from-[#191616] to-[#2F2F2F] rounded-2xl shadow-lg py-2 w-96 z-50">
                 <h1 className="px-4 w-9 h-14 text-xl text-pretty py-2 font-bold text-white">Notifications</h1>
                 <div className="max-h-60 overflow-y-auto">
                   <p className="px-4 py-2 text-white hover:bg-gray-600">User1 sent you a message</p>
@@ -156,14 +156,14 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
             >
               <FaBriefcase />
             </button>
-            <div className="w-0.5 bg-white h-10 mt-0.5 mx-3">|</div>
+            <div className="w-0.5 bg-white h-10 mt-0.5 mx-3"></div>
             {/* Profile Picture Button */}
             <div ref={profileRef} className="relative">
               <button
                 onClick={() => setProfileOpen(!profileOpen)}
-                className="px-2.5 w-10 h-10 bg-gray-700 rounded-full border-2 border-white text-white flex items-center justify-center"
+                className=" w-10 h-10 bg-gray-700 rounded-full border-2 border-white text-white flex items-center justify-center"
               >
-                <FaUserCircle />
+                <img src="/profile-pic_SB 2.svg"></img>
               </button>
               {profileOpen && (
                 <div className="absolute mt-7 -ml-20 bg-gradient-to-tr from-[#191616] to-[#2F2F2F] rounded-2xl shadow-lg py-2 w-30 ">
@@ -189,14 +189,15 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
       </header>
 
       <main lang="en">
-        <div>{children}</div>
-      <footer className="mt-56">
-       <Footer />
-       </footer>
+        <div className="w-full h-full px-10">{children}</div>
       
       </main>
-
+     
+       <Footer />
+      
+      
      
     </div>
   );
 }
+export default HomeLayout;
